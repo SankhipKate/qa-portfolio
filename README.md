@@ -62,3 +62,7 @@ It covers:
 All materials in this repository are anonymized.
 
 No real customer data, internal company documentation, production credentials, private API endpoints, financial data, or confidential business information are included.
+
+## QA Artifacts
+
+- [SA Hiring Functional Flow Checklist](checklists/sa-hiring-functional-checklist.md)

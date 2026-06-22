@@ -38,17 +38,24 @@ My main experience is connected with complex business workflows, internal tools,
 
 ## Featured Case Study
 
-The main case study in this portfolio is an anonymized QA case based on a retail agent onboarding system in a fintech environment.
+- [AI-Assisted Sales Agent Hiring Flow](case-studies/ai-assisted-sales-agent-hiring-flow.md)
+
+This case study describes an anonymized fintech mass-hiring flow for Sales Ambassadors.
 
 It covers:
 
-- working as the sole QA Engineer;
-- building QA processes from scratch;
-- documenting business logic and user flows;
-- creating requirement coverage matrices;
-- improving bug reporting quality;
-- using trace IDs, evidence, and log excerpts;
-- testing complex multi-step workflows with many business branches.
+- application form validation;
+- automated candidate filtering;
+- city and province matching;
+- vacancy availability logic;
+- buffer and waitlist scenarios;
+- AI recruiter interview flow;
+- OIF document submission and resubmission;
+- HR check statuses;
+- training scheduling;
+- SMS and email notification testing;
+- Jira status transitions;
+- UAT and production testing strategy.
 
 ## Confidentiality Note
 

@@ -66,3 +66,4 @@ No real customer data, internal company documentation, production credentials, p
 ## QA Artifacts
 
 - [SA Hiring Functional Flow Checklist](checklists/sa-hiring-functional-checklist.md)
+- [SA Hiring Critical Path Test Cases](test-cases/sa-hiring-critical-path-test-cases.md)

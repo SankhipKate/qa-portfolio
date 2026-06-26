@@ -69,3 +69,4 @@ No real customer data, internal company documentation, production credentials, p
 - [SA Hiring Critical Path Test Cases](test-cases/sa-hiring-critical-path-test-cases.md)
 - [SA Hiring Sample Bug Reports](bug-reports/sa-hiring-sample-bug-reports.md)
 - [SA Hiring Test Strategy](test-documentation/sa-hiring-test-strategy.md)
+- [SA Hiring Data Validation SQL Queries](sql/sa-hiring-data-validation-queries.md)

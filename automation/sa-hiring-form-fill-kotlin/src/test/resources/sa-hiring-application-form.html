@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SA Hiring Application Form Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #252525;
+      margin: 0;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      margin-bottom: 4px;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      color: #777;
+      margin-bottom: 28px;
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 44px;
+      box-sizing: border-box;
+      border: 1px solid #d0d0d0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 16px;
+      background: #ffffff;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: auto;
+      min-height: auto;
+      margin-right: 8px;
+    }
+
+    .hint {
+      color: #777;
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    .radio-row,
+    .checkbox-row {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .radio-row label,
+    .checkbox-row label {
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .consent {
+      margin-top: 24px;
+      line-height: 1.5;
+      background: #fff4f4;
+      border: 1px solid #ff5a5f;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 24px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      background: #ef4d50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background: #d8d8d8;
+      cursor: not-allowed;
+    }
+
+    .success {
+      display: none;
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #edf8ef;
+      border: 1px solid #78c287;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+      margin-top: 12px;
+    }
+
+    .result-label {
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Application form</h1>
+  <div class="subtitle">For Salmon sales ambassadors</div>
+
+  <form id="application-form">
+    <label for="province">Preferred work province</label>
+    <select id="province" name="province" required>
+      <option value="">Select province</option>
+      <option value="Benguet">Benguet</option>
+      <option value="Metro Manila">Metro Manila</option>
+      <option value="Cebu">Cebu</option>
+    </select>
+
+    <label for="city">Preferred work city</label>
+    <select id="city" name="city" required disabled>
+      <option value="">Select city</option>
+    </select>
+    <div class="hint" id="city-hint">Select the province first</div>
+
+    <label for="alternateCity">Alternate Work Cities (optional)</label>
+    <select id="alternateCity" name="alternateCity" disabled>
+      <option value="">Select alternate city</option>
+    </select>
+    <div class="hint" id="alternate-city-hint">Select the Preferred work city first</div>
+
+    <label for="firstName">First name</label>
+    <input id="firstName" name="firstName" type="text" required />
+
+    <label for="middleName">Middle name</label>
+    <input id="middleName" name="middleName" type="text" />
+
+    <div class="checkbox-row">
+      <label>
+        <input id="noMiddleName" name="noMiddleName" type="checkbox" />
+        I don’t have a middle name
+      </label>
+    </div>
+
+    <label for="lastName">Last name</label>
+    <input id="lastName" name="lastName" type="text" required />
+
+    <label for="mobileNumber">Mobile number</label>
+    <input id="mobileNumber" name="mobileNumber" type="tel" placeholder="09XXXXXXXXX" required />
+    <div class="hint">Ensure your phone number is active, belongs to you, and is in the format 09XXXXXXXXX.</div>
+
+    <label for="email">Personal email address</label>
+    <input id="email" name="email" type="email" required />
+
+    <label for="age">Age</label>
+    <select id="age" name="age" required>
+      <option value="">Select age</option>
+      <option value="18">18</option>
+      <option value="25">25</option>
+      <option value="32">32</option>
+      <option value="45">45</option>
+    </select>
+
+    <label>Do you have any visible tattoos on your arms, neck, face, or chest when wearing a short-sleeve shirt?</label>
+    <div class="radio-row">
+      <label><input id="tattoosYes" name="visibleTattoos" type="radio" value="Yes" required /> Yes</label>
+      <label><input id="tattoosNo" name="visibleTattoos" type="radio" value="No" /> No</label>
+    </div>
+
+    <label for="education">Highest education attainment</label>
+    <select id="education" name="education" required>
+      <option value="">Select education</option>
+      <option value="High school graduate">High school graduate</option>
+      <option value="College undergraduate">College undergraduate</option>
+      <option value="College graduate">College graduate</option>
+    </select>
+
+    <label for="workExperience">Length of work experience</label>
+    <select id="workExperience" name="workExperience" required>
+      <option value="">Select work experience</option>
+      <option value="Less than 1 year">Less than 1 year</option>
+      <option value="1-2 years">1-2 years</option>
+      <option value="3+ years">3+ years</option>
+    </select>
+
+    <label>Sales experience (select all that apply)</label>
+    <div class="checkbox-row">
+      <label><input id="salesMobile" name="salesExperience" type="checkbox" value="Mobile phones and gadgets" /> Mobile phones and gadgets</label>
+      <label><input id="salesRetail" name="salesExperience" type="checkbox" value="Retail" /> Retail</label>
+      <label><input id="salesFinancing" name="salesExperience" type="checkbox" value="Financing" /> Financing</label>
+      <label><input id="salesOther" name="salesExperience" type="checkbox" value="Other" /> Other</label>
+    </div>
+
+    <label for="previousCompany">Previous company (optional)</label>
+    <input id="previousCompany" name="previousCompany" type="text" />
+    <div class="hint">Tell us if you work or have worked for a finance or fintech company.</div>
+
+    <label for="resume">Resume</label>
+    <input id="resume" name="resume" type="file" required />
+    <div class="hint">Maximum 10 MB. Supported formats: doc, docx, jpeg, jpg, png, pdf.</div>
+
+    <label>Do you own or have regular access to a scooter or motorcycle?</label>
+    <div class="radio-row">
+      <label><input id="scooterYes" name="scooterAccess" type="radio" value="Yes" required /> Yes</label>
+      <label><input id="scooterNoNotReady" name="scooterAccess" type="radio" value="No, not ready to buy" /> No, not ready to buy</label>
+      <label><input id="scooterNoReady" name="scooterAccess" type="radio" value="No, ready to buy" /> No, ready to buy</label>
+    </div>
+    <div class="hint">For SA position, private transport is not mandatory.</div>
+
+    <label for="availability">Availability to start</label>
+    <select id="availability" name="availability" required>
+      <option value="">Select availability</option>
+      <option value="Immediately">Immediately</option>
+      <option value="Within 2 weeks">Within 2 weeks</option>
+      <option value="Within 1 month">Within 1 month</option>
+    </select>
+
+    <label for="source">How did you learn about the job?</label>
+    <select id="source" name="source" required>
+      <option value="">Select source</option>
+      <option value="Facebook ad">Facebook ad</option>
+      <option value="Referral">Referral</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="referralCode">Referral code (optional)</label>
+    <input id="referralCode" name="referralCode" type="text" />
+    <div class="hint">If you were recommended by a Salmon employee.</div>
+
+    <div class="consent">
+      <label>
+        <input id="consent" name="consent" type="checkbox" required />
+        By submitting this form, I acknowledge, agree, and give consent that my information is accurate and complete.
+      </label>
+    </div>
+
+    <button id="submitButton" type="submit" disabled>Submit</button>
+  </form>
+
+  <div id="successScreen" class="success">
+    <h2>Application successfully submitted</h2>
+    <p>Submitted candidate data:</p>
+    <div class="result-grid">
+      <div class="result-label">Province</div><div id="resultProvince"></div>
+      <div class="result-label">City</div><div id="resultCity"></div>
+      <div class="result-label">First name</div><div id="resultFirstName"></div>
+      <div class="result-label">Last name</div><div id="resultLastName"></div>
+      <div class="result-label">Mobile number</div><div id="resultMobileNumber"></div>
+      <div class="result-label">Email</div><div id="resultEmail"></div>
+      <div class="result-label">Availability</div><div id="resultAvailability"></div>
+      <div class="result-label">Source</div><div id="resultSource"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const citiesByProvince = {
+    "Benguet": ["Baguio", "La Trinidad", "Itogon"],
+    "Metro Manila": ["Makati", "Taguig", "Quezon City"],
+    "Cebu": ["Cebu City", "Mandaue", "Lapu-Lapu"]
+  };
+
+  const form = document.getElementById("application-form");
+  const province = document.getElementById("province");
+  const city = document.getElementById("city");
+  const alternateCity = document.getElementById("alternateCity");
+  const submitButton = document.getElementById("submitButton");
+  const consent = document.getElementById("consent");
+
+  province.addEventListener("change", () => {
+    city.innerHTML = '<option value="">Select city</option>';
+    alternateCity.innerHTML = '<option value="">Select alternate city</option>';
+    alternateCity.disabled = true;
+
+    const selectedProvince = province.value;
+    if (selectedProvince && citiesByProvince[selectedProvince]) {
+      citiesByProvince[selectedProvince].forEach(cityName => {
+        const option = document.createElement("option");
+        option.value = cityName;
+        option.textContent = cityName;
+        city.appendChild(option);
+      });
+      city.disabled = false;
+      document.getElementById("city-hint").textContent = "Select your preferred work city";
+    } else {
+      city.disabled = true;
+      document.getElementById("city-hint").textContent = "Select the province first";
+    }
+
+    validateForm();
+  });
+
+  city.addEventListener("change", () => {
+    alternateCity.innerHTML = '<option value="">Select alternate city</option>';
+
+    const selectedProvince = province.value;
+    const selectedCity = city.value;
+    if (selectedProvince && selectedCity) {
+      citiesByProvince[selectedProvince]
+        .filter(cityName => cityName !== selectedCity)
+        .forEach(cityName => {
+          const option = document.createElement("option");
+          option.value = cityName;
+          option.textContent = cityName;
+          alternateCity.appendChild(option);
+        });
+      alternateCity.disabled = false;
+      document.getElementById("alternate-city-hint").textContent = "Optional";
+    } else {
+      alternateCity.disabled = true;
+      document.getElementById("alternate-city-hint").textContent = "Select the Preferred work city first";
+    }
+
+    validateForm();
+  });
+
+  form.addEventListener("input", validateForm);
+  form.addEventListener("change", validateForm);
+  consent.addEventListener("change", validateForm);
+
+  function validateForm() {
+    submitButton.disabled = !form.checkValidity();
+  }
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    document.getElementById("resultProvince").textContent = province.value;
+    document.getElementById("resultCity").textContent = city.value;
+    document.getElementById("resultFirstName").textContent = document.getElementById("firstName").value;
+    document.getElementById("resultLastName").textContent = document.getElementById("lastName").value;
+    document.getElementById("resultMobileNumber").textContent = document.getElementById("mobileNumber").value;
+    document.getElementById("resultEmail").textContent = document.getElementById("email").value;
+    document.getElementById("resultAvailability").textContent = document.getElementById("availability").value;
+    document.getElementById("resultSource").textContent = document.getElementById("source").value;
+
+    form.style.display = "none";
+    document.getElementById("successScreen").style.display = "block";
+  });
+</script>
+</body>
+</html>

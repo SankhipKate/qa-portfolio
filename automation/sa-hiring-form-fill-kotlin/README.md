@@ -17,20 +17,34 @@ For portfolio safety, the test runs against a local demo form instead of the liv
 The automated test validates a UAT-like form submission flow:
 
 1. Open local SA Hiring application form.
-2. Select preferred work province.
-3. Verify preferred work city becomes enabled.
-4. Select preferred work city.
-5. Verify alternate work city becomes enabled.
-6. Fill candidate personal data.
-7. Select age, education, work experience and sales experience.
-8. Upload dummy resume file.
-9. Select scooter / motorcycle access.
-10. Select availability to start.
-11. Select candidate source.
-12. Accept consent.
-13. Submit the form.
-14. Verify success screen.
-15. Verify submitted candidate data in the local result block.
+2. Verify dependent fields are disabled before required selections.
+3. Select preferred work province.
+4. Verify preferred work city becomes enabled.
+5. Select preferred work city.
+6. Verify alternate work city becomes enabled.
+7. Fill candidate personal data.
+8. Select age, education, work experience and sales experience.
+9. Upload dummy resume file.
+10. Select scooter / motorcycle access.
+11. Select availability to start.
+12. Select candidate source.
+13. Accept consent.
+14. Verify submit button becomes enabled.
+15. Submit the form.
+16. Verify success screen.
+17. Verify submitted candidate data in the local result block.
+
+## Demo Mode
+
+This test intentionally opens Chrome in visible mode and pauses after key steps.
+
+The pauses are included so reviewers can see the form state while the automated test is running:
+
+- initial empty form;
+- selected province and city;
+- filled candidate personal data;
+- full form before submit;
+- success screen after submission.
 
 ## Production vs UAT Note
 
@@ -48,7 +62,7 @@ From this folder:
 gradle test
 ```
 
-The test uses Chrome in headless mode.
+Chrome will open visibly and the test will pause after key steps.
 
 ## Public Portfolio Safety
 

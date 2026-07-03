@@ -28,7 +28,6 @@ class SAHiringApplicationFormTest {
         WebDriverManager.chromedriver().setup()
 
         val options = ChromeOptions()
-        options.addArguments("--headless=new")
         options.addArguments("--window-size=1280,1600")
 
         driver = ChromeDriver(options)
@@ -50,6 +49,8 @@ class SAHiringApplicationFormTest {
 
         driver.get(formUrl)
 
+        pauseForDemo("Initial empty form is opened", 4000)
+
         assertTrue(driver.title.contains("SA Hiring"))
         assertFalse(element("city").isEnabled)
         assertFalse(element("alternateCity").isEnabled)
@@ -61,6 +62,8 @@ class SAHiringApplicationFormTest {
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("alternateCity")))
         select("alternateCity", "La Trinidad")
+
+        pauseForDemo("Province, city and alternate city selected", 4000)
 
         type("firstName", "Test")
         click("noMiddleName")
@@ -75,6 +78,8 @@ class SAHiringApplicationFormTest {
         click("salesFinancing")
         type("previousCompany", "Test Fintech Company")
 
+        pauseForDemo("Candidate personal data and experience fields filled", 4000)
+
         val resumePath = Paths.get("src/test/resources/test-resume.pdf")
             .toAbsolutePath()
             .toString()
@@ -85,6 +90,8 @@ class SAHiringApplicationFormTest {
         select("source", "Facebook ad")
         click("consent")
 
+        pauseForDemo("Full form is filled before submit", 5000)
+
         wait.until(ExpectedConditions.elementToBeClickable(By.id("submitButton")))
         assertTrue(element("submitButton").isEnabled)
 
@@ -92,6 +99,8 @@ class SAHiringApplicationFormTest {
 
         val successScreen = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("successScreen")))
         assertTrue(successScreen.text.contains("Application successfully submitted"))
+
+        pauseForDemo("Success screen is displayed", 7000)
 
         assertEquals("Benguet", text("resultProvince"))
         assertEquals("Baguio", text("resultCity"))
@@ -101,6 +110,11 @@ class SAHiringApplicationFormTest {
         assertEquals("qa.sa.hiring@example.com", text("resultEmail"))
         assertEquals("Immediately", text("resultAvailability"))
         assertEquals("Facebook ad", text("resultSource"))
+    }
+
+    private fun pauseForDemo(stepName: String, milliseconds: Long) {
+        println("Demo pause: $stepName")
+        Thread.sleep(milliseconds)
     }
 
     private fun element(id: String): WebElement = driver.findElement(By.id(id))

@@ -8,6 +8,7 @@ version = "1.0.0"
 dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.3")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.10.3")
     testImplementation("org.seleniumhq.selenium:selenium-java:4.23.0")
     testImplementation("io.github.bonigarcia:webdrivermanager:5.9.2")
 }

@@ -17,8 +17,8 @@ My main experience is connected with complex business workflows, internal tools,
 | `test-cases/` | Examples of test cases for web, mobile, API, and business flows |
 | `checklists/` | QA checklists for smoke, regression, mobile, API, and AI chatbot testing |
 | `api-testing/` | API testing scenarios, negative tests, and Postman examples |
-| `sql/` | SQL practice tasks relevant for QA interviews |
-| `automation/` | Test automation examples and CI/CD notes |
+| `sql/` | SQL data validation queries for backend state, Jira status, SMS history, and document flow checks |
+| `automation/` | Kotlin/Selenium UI automation samples based on candidate-facing form flows |
 | `test-documentation/` | Examples of QA documentation and test artifacts |
 
 ## Key Areas
@@ -31,7 +31,7 @@ My main experience is connected with complex business workflows, internal tools,
 - Bug reporting
 - Requirements coverage
 - SQL basics
-- Java / Kotlin automation basics
+- Kotlin UI automation basics
 - CI/CD basics
 - AI chatbot testing
 - Fintech and internal business tools

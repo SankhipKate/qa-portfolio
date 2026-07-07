@@ -18,7 +18,7 @@ My main experience is connected with complex business workflows, internal tools,
 | `checklists/` | QA checklists for smoke, regression, mobile, API, and AI chatbot testing |
 | `api-testing/` | API testing scenarios, negative tests, and Postman examples |
 | `sql/` | SQL data validation queries for backend state, Jira status, SMS history, and document flow checks |
-| `automation/` | Kotlin/Selenium UI automation samples based on candidate-facing form flows |
+| `automation/` | Python pytest and Kotlin Selenium automation samples |
 | `test-documentation/` | Examples of QA documentation and test artifacts |
 
 ## Key Areas
@@ -31,10 +31,23 @@ My main experience is connected with complex business workflows, internal tools,
 - Bug reporting
 - Requirements coverage
 - SQL basics
+- Python pytest automation basics
 - Kotlin UI automation basics
 - CI/CD basics
 - AI chatbot testing
 - Fintech and internal business tools
+
+## Automation Projects
+
+### Python + pytest
+
+- [Shop Discount](automation/python/pytest/shop-discount)  
+  A small Python test automation project demonstrating parametrized pytest tests, HTML test reports, and code coverage reporting.
+
+### Kotlin + Selenium
+
+- [SA Hiring Form Fill Automation Sample](automation/sa-hiring-form-fill-kotlin)  
+  UI automation sample based on a candidate-facing hiring form flow.
 
 ## Featured Case Study
 
@@ -57,12 +70,6 @@ It covers:
 - Jira status transitions;
 - UAT and production testing strategy.
 
-## Confidentiality Note
-
-All materials in this repository are anonymized.
-
-No real customer data, internal company documentation, production credentials, private API endpoints, financial data, or confidential business information are included.
-
 ## QA Artifacts
 
 - [SA Hiring Functional Flow Checklist](checklists/sa-hiring-functional-checklist.md)
@@ -70,4 +77,9 @@ No real customer data, internal company documentation, production credentials, p
 - [SA Hiring Sample Bug Reports](bug-reports/sa-hiring-sample-bug-reports.md)
 - [SA Hiring Test Strategy](test-documentation/sa-hiring-test-strategy.md)
 - [SA Hiring Data Validation SQL Queries](sql/sa-hiring-data-validation-queries.md)
-- [SA Hiring Form Fill Automation Sample](automation/sa-hiring-form-fill-kotlin)
+
+## Confidentiality Note
+
+All materials in this repository are anonymized.
+
+No real customer data, internal company documentation, production credentials, private API endpoints, financial data, or confidential business information are included.

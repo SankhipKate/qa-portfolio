@@ -1,0 +1,163 @@
+{
+  "info": {
+    "_postman_id": "8b607ef5-c1f4-4e44-a92d-qa-portfolio-sa-hiring",
+    "name": "SA Hiring API — Portfolio Sample",
+    "description": "Portfolio-safe collection. Endpoints, payloads, and data are sanitized/synthetic and are not production exports.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Candidate — Valid",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status is 201\", function () { pm.response.to.have.status(201); });",
+              "pm.test(\"Candidate id exists\", function () { pm.expect(pm.response.json()).to.have.property(\"candidate_id\"); });",
+              "pm.test(\"Initial status is Video/Test\", function () { pm.expect(pm.response.json().status).to.eql(\"Video/Test\"); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Test\",\n  \"last_name\": \"Candidate\",\n  \"email\": \"qa+candidate@example.com\",\n  \"phone\": \"+639171234567\",\n  \"city\": \"Baguio\",\n  \"province\": \"Benguet\",\n  \"source\": \"advertising_campaign\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/applications",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "applications"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Candidate — Missing Email",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Validation error is returned\", function () { pm.expect(pm.response.code).to.be.oneOf([400, 422]); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Test\",\n  \"last_name\": \"Candidate\",\n  \"phone\": \"+639171234567\",\n  \"city\": \"Baguio\",\n  \"province\": \"Benguet\",\n  \"source\": \"advertising_campaign\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/applications",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "applications"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Submit Video/Test Result",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Request succeeds\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Status exists\", function () { pm.expect(pm.response.json()).to.have.property(\"status\"); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"result\": \"passed\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/candidates/{{candidate_id}}/video-test",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "candidates",
+            "{{candidate_id}}",
+            "video-test"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Resubmit Invalid Document",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Document update succeeds\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Candidate returns to HR Check\", function () { pm.expect(pm.response.json().candidate_status).to.eql(\"HR Check\"); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"file_reference\": \"portfolio-test-file.pdf\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/candidates/{{candidate_id}}/documents/{{document_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "candidates",
+            "{{candidate_id}}",
+            "documents",
+            "{{document_id}}"
+          ]
+        }
+      }
+    }
+  ]
+}
